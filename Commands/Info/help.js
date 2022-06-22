@@ -104,7 +104,9 @@ module.exports = {
         },
         {
           label: "Economy",
-          description: "Shows all the economy commands"  
+          description: "Shows all the economy commands",
+		  value: "economic",
+		  emoji: ":coin:"
         }
       ])
     )
