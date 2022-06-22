@@ -1,7 +1,8 @@
-![Banner](https://cdn.discordapp.com/attachments/976417010521108551/988002240881127444/chronium-bot-v1.0.2-source-code.png)
-
 <h1 align="center"> Chronium Bot  </h1>
 <p align="center">
+
+  <img src="https://cdn.discordapp.com/attachments/911214420405919814/989059355817168936/chronium-bot.png">
+
 </a>
 </p>
 <h3 align="center">An Multi-purpose Discord bot with many features!</h3>
