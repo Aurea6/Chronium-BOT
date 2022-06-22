@@ -52,7 +52,6 @@
 | Image                  |     ✅       |
 | Info                   |     ✅       |
 | Moderation             |     ✅       |
-| Music                  |     ✅       |
 | Economy                   |     Coming soon       |
 | Utilities              |     ✅       |
 
