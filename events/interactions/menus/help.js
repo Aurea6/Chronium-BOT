@@ -117,10 +117,20 @@ await msg.edit({ embeds: [activityEmbed] })
       } else if (interaction.values[0] === "economic") {
             await interaction.deferUpdate()
             
-        const activityEmbed = new Discord.MessageEmbed()
+        const economicEmbed = new Discord.MessageEmbed()
         .setTitle("Economy Commands")
         .setDescription(
           "Coming in the next update of v1.0.3"
+        )
+        .setColor("RANDOM");
+await msg.edit({ embeds: [economicEmbed] })
+      } else if (interaction.values[0] === "code") {
+            await interaction.deferUpdate()
+            
+        const codeEmbed = new Discord.MessageEmbed()
+        .setTitle("My source code")
+        .setDescription(
+          "Make sure to not remove credits/n> [Github](https://github.com/iRed-Github/Chronium-BOT)\n[Repl.it Link](https://repl.it/@flute-chan/Chronium-BOT?v=1)"
         )
         .setColor("RANDOM");
 
