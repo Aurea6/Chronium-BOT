@@ -105,8 +105,14 @@ module.exports = {
         {
           label: "Economy",
           description: "Shows all the economy commands",
-		  value: "economic",
-		  emoji: ":coin:"
+          value: "economic",
+          emoji: "🪙"
+        },
+        {
+          label: "Code",
+          description: "Gives you the link to the source code of this bot",
+          emoji: "⭐",
+          value: "code"
         }
       ])
     )
