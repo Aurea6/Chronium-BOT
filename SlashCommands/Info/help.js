@@ -67,6 +67,12 @@ module.exports = {
           emoji: "🎮"
         },
         {
+          label: "Source code",
+          description: "Gives you my source code",
+          value: "code",
+          emoji: "⭐"
+         },
+        {
           label: "Fun",
           description: "Shows all the fun commands",
           value: "fun",
