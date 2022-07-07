@@ -144,4 +144,12 @@
 
 ***
 
+# Bugs
+- Having bugs in the code? Refer to [solving bugs](https://github.com/iRed-Github/Chronium-BOT/blob/main/fixes.md) file for help it have common errors and how to solve them! If you still need some helps then don't be shy join [idk-devs](https://dsc.gg/idk-development) server and dm me or open a ticket to get helped!
+- If you find any bugs or issues in the code report them in [this page](https://github.com/iRed-Github/Chronium-BOT/issues)!
+- For free vps hosting use clohost! *check advertising summary there you will find it!*
+- For an better support join these servers
+^ [ICX org.](https://discord.gg/EBBtDGgF8S)
+^ [Tech Boy Development](https://discord.gg/PcUVWApWN3)
+^ [Abrotix Development](https://discord.gg/JpTcuAKfXN)
 ## *If you liked this code make sure to Star ⭐ This resporitory!*
