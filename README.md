@@ -82,6 +82,8 @@
 - 2). Open your terminal and type `git clone https://github.com/iRed-Github/Chronium-BOT.git`
 #### Installing all necessary packages
 - `npm install`
+#### Setting up env files
+- `$ ./setup_env.sh`
 #### Starting the bot
 - `node .` or `node index` 
 
@@ -149,7 +151,10 @@
 - If you find any bugs or issues in the code report them in [this page](https://github.com/iRed-Github/Chronium-BOT/issues)!
 - For free vps hosting use clohost! *check advertising summary there you will find it!*
 - For an better support join these servers
-^ [ICX org.](https://discord.gg/EBBtDGgF8S)
-^ [Tech Boy Development](https://discord.gg/PcUVWApWN3)
-^ [Abrotix Development](https://discord.gg/JpTcuAKfXN)
+
+> [ICX org.](https://discord.gg/EBBtDGgF8S)
+
+> [Tech Boy Development](https://discord.gg/PcUVWApWN3)
+
+> [Abrotix Development](https://discord.gg/JpTcuAKfXN)
 ## *If you liked this code make sure to Star ⭐ This resporitory!*
