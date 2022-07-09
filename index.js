@@ -25,6 +25,10 @@ client.commands = new Collection();
 client.slash = new Collection();
 client.aliases = new Collection();
 client.categories = fs.readdirSync("./Commands/");
+const Timeout = new Collection();
+client.snipes = new Collection()
+client.config = require("./botconfig/main.json");
+require("./handler")(client);
 client.setMaxListeners(0);
 const Cookie = YT_COOKIE;
 client.logger = Logger;
@@ -82,6 +86,10 @@ process.on("unhandledRejection", (reason, promise) => {
   .setColor("RED")
   client.channels.cache.get(ERROR_LOGS_CHANNEL).send({ embeds: [rejectionembed] })
 });
+const db = require("quick.db")
+const countingSchema = require("./schemas/counting") 
+let pagination = require('./function/pagination') 
+const eco = require('./schemas/economy');
 
 client.login(BOT_TOKEN || process.env.TOKEN).then(() => {
   console.log(
@@ -90,6 +98,11 @@ client.login(BOT_TOKEN || process.env.TOKEN).then(() => {
     )
   );
 });
+const Levels = require("discord-xp");
+
+const { mongooseConnectionString } = require("./botconfig/main.json");
+
+Levels.setURL(mongooseConnectionString);
 // if your on a hosting platform where env's can be used to hide stuff then put your discord bot token in env
 // check example.env file for some info
 /**
