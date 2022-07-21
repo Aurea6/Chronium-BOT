@@ -19,7 +19,7 @@ module.exports = [
     items: "blob",
     price: {buy: 0, sell: 0},
     desc: "The Rarest and Craziest item",
-    emoji: "<a:blob:990481613093765120>",
+    emoji: "<a:blob:999649680004755569>",
     type: "collectables",
     rarity: "omega"
   },
@@ -115,7 +115,7 @@ module.exports = [
     items: 'santasbag',
     price: {buy: 0, sell: 0},
     desc: 'Use this to get some items and caah',
-    emoji: '<:Santa_Bag:990490416946237532>',
+    emoji: '<:Santa_Bag:999659138336436284>',
     type: 'lootbox',
     rarity: 'ultra rare'
   },
@@ -123,7 +123,7 @@ module.exports = [
     items: 'spookybox',
     price: {buy: 1000000, sell: 0},
     desc: 'I wonder what this does hmmm',
-    emoji: '<:spooky_box:990490618901962802>',
+    emoji: '<:spooky_box:999659289947930664>',
     type: 'lootbox',
     rarity: 'ultra rare'
   },
@@ -131,7 +131,7 @@ module.exports = [
     items: 'spinner',
     price: {buy: 6000, sell: 0},
     desc: 'use this to get multi in gamble',
-    emoji: '<a:FidgetSpinner:990490943805341736>',
+    emoji: '<a:FidgetSpinner:999659544802234459>',
     type: 'useable',
     rarity: 'rare'
   },
