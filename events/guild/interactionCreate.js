@@ -1,61 +1,40 @@
-module.exports = async(interaction, client) => {
-    const { OwnerID } = require('../../config.json')
+const client = require("../../index");
 
-    if (!interaction.isCommand()) return;
+client.on("interactionCreate", async (interaction) => {
+   // ———————————————[Slash Commands]———————————————
+   if (interaction.isCommand()) {
+      await interaction.deferReply({ ephemeral: false }).catch(() => {});
 
-        const command = client.slash.get(interaction.commandName);
-        if (!command) return interaction.reply({ content: 'an Erorr' });
+      const cmd = client.slashCommands.get(interaction.commandName);
+      if (!cmd)
+         return interaction.followUp({ content: "An error has occured " });
 
-        if (command.ownerOnly) {
-            if (!interaction.member.user.id == OwnerID) {
-                return interaction.reply('Command under developement!')
-            }
-        }
+      const args = [];
 
-        if (command.userPerms) {
-            if (!client.guilds.cache.get(interaction.guild.id).members.cache.get(interaction.member.id).permissions.has(command.userPerms || [])) {
-                if (command.noUserPermsMessage) {
-                    return interaction.reply(command.noUserPermsMessage)
-                } else if (!command.noUserPermsMessage) {
-                    return interaction.reply(`You need the \`${command.userPerms}\` permission to use this command!`)
-                }
-            }
-        }
+      for (let option of interaction.options.data) {
+         if (option.type === "SUB_COMMAND") {
+            if (option.name) args.push(option.name);
+            option.options?.forEach((x) => {
+               if (x.value) args.push(x.value);
+            });
+         } else if (option.value) args.push(option.value);
+      }
+      interaction.member = interaction.guild.members.cache.get(
+         interaction.user.id
+      );
 
-        if (command.botPerms) {
-            if (!client.guilds.cache.get(interaction.guild.id).members.cache.get(client.user.id).permissions.has(command.botPerms || [])) {
-                if (command.noBotPermsMessage) {
-                    return interaction.reply(command.noBotPermsMessage)
-                } else if (!command.noBotPermsMessage) {
-                    return interaction.reply(`I need the \`${command.userPerms}\` permission to execute this command!`)
-                }
-            }
-        } 
-
-        const args = [];
-
-        for (let option of interaction.options.data) {
-            if (option.type === 'SUB_COMMAND') {
-                if (option.name) args.push(option.name);
-                option.options?.forEach(x =>  {
-                    if (x.value) args.push(x.value);
-                });
-            } else if (option.value) args.push(option.value);
-        }
-
-        try {
-
-            command.run(client, interaction, args)
-        } catch (e) {
-            interaction.reply({ content: e.message });
-        }
-    }
-/**
- * @INFO
- * Bot Coded by iRed#1330 | https://github.com/iRed-Github/Chronium-BOT
- * @INFO
- * Join iDK Development | https://dsc.gg/idk-development
- * @INFO
- * Please mention Her / iDK Development, when using this Code!
- * @INFO
- */
+      cmd.run(client, interaction, args);
+   }
+   // ———————————————[Buttons]———————————————
+   if (interaction.isButton()) {
+   }
+   // ———————————————[Select Menu]———————————————
+   if (interaction.isSelectMenu()) {
+   }
+   // ———————————————[Context Menu]———————————————
+   if (interaction.isContextMenu()) {
+      await interaction.deferReply({ ephemeral: false });
+      const command = client.slashCommands.get(interaction.commandName);
+      if (command) command.run(client, interaction);
+   }
+});
