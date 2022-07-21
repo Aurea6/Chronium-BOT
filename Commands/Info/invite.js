@@ -1,26 +1,41 @@
-const Discord = require("discord.js");
+const { MessageActionRow, MessageButton , MessageSelectMenu, MessageEmbed} = require("discord.js") 
 
 module.exports = {
   name: "invite",
-  description: "Get the bot's",
-  botPerms: ["EMBED_LINKS"],
-  run: async (client, message, args) => {
-    let embed = new Discord.MessageEmbed()
-      .setTitle("Invite Me")
-      .setColor("RANDOM")
-      .setDescription(
-        "**Get Chronium's Invite Link [Here](https://discord.com/oauth2/authorize?client_id=977141223301189674&permissions=1375732092151&scope=bot%20applications.commands)**\n**Need assistance? Join our [Support Server](https://dsc.gg/idk-development) now!**"
-      )
-      .setFooter(`Requested By: ${message.author.username}`);
-    message.channel.send({ embeds: [embed] });
-  },
-};
-/**
- * @INFO
- * Bot Coded by iRed#1330 | https://github.com/iRed-Github/Chronium-BOT
- * @INFO
- * Join iDK Development | https://dsc.gg/idk-development
- * @INFO
- * Please mention Her / iDK Development, when using this Code!
- * @INFO
- */
+  run: async(client,message,args) => {
+
+const row = new MessageActionRow() 
+    .addComponents(
+      new MessageButton()
+      .setLabel("Invite me")
+      
+      .setStyle("LINK") 
+.setEmoji("909758706290417714")
+      .setURL("https://dsc.gg/chronium-bot"),
+      new MessageButton()
+      .setLabel("Support Server")
+      
+      .setStyle("LINK") 
+.setEmoji("911535908518527018")
+      .setURL("https://dsc.gg/idk-development"),
+      new MessageButton()
+      .setLabel("Vote me")
+      
+      .setStyle("LINK") 
+.setEmoji("911545788608430111")
+      .setURL("https://top.gg/bot/977141223301189674/vote")
+    )
+
+let embed = new MessageEmbed()
+    .setTitle(`Invite Me!`)
+  .setURL("https://dsc.gg/moonlight05")
+    .setDescription(`Invite ${client.user.username} to your server!`)
+    .setFooter(client.user.tag, client.user.displayAvatarURL({dynamic:true}))
+      .setColor("#f4c2c2")
+    .setTimestamp()
+
+
+    
+    message.channel.send({embeds: [embed], components: [row]})
+}
+}
