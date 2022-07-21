@@ -3,8 +3,8 @@ const Discord = module.require("discord.js");
 module.exports = {
   name: "softban",
   description: "Soft Ban a User",
-  userPerms: ["BAN_MEMBERS"],
-  botPerms: ["EMBED_LINKS", "BAN_MEMBERS", "MANAGE_MESSAGES"],
+  userpermissions: ["BAN_MEMBERS"],
+  botpermissions: ["EMBED_LINKS", "BAN_MEMBERS", "MANAGE_MESSAGES"],
   run: async (client, message, args) => {
     message.delete();
 
@@ -49,12 +49,3 @@ module.exports = {
     message.channel.send({ embeds: [embed] });
   },
 };
-/**
- * @INFO
- * Bot Coded by iRed#1330 | https://github.com/iRed-Github/Chronium-BOT
- * @INFO
- * Join iDK Development | https://dsc.gg/idk-development
- * @INFO
- * Please mention Her / iDK Development, when using this Code!
- * @INFO
- */

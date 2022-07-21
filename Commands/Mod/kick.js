@@ -1,55 +1,78 @@
-const discord = module.require("discord.js");
-const { MessageEmbed } = require("discord.js");
-
+const Discord = require('discord.js');
+const { MessageActionRow, MessageButton, MessageEmbed } = require('discord.js');
 module.exports = {
-  name: "kick",
-  category: "moderation",
-  description: "Kick anyone with one shot xD",
-  usage: "kick <@user> <reason>",
-  userPerms: ["KICK_MEMBERS"],
-  botPerms: ["EMBED_LINKS", "KICK_MEMBERS"],
-  run: async (client, message, args) => {
+  name: "kickmember",
+  aliases: ["kick"],
+  description: "Kick a member",
+  
+  
+run: async (client, message, args) => {
+        const GuildMember = message.member;
+        if(!GuildMember.permissions.has("KICK_MEMBERS")) return message.channel.send({ content: "You do not have permissions to do that!", })
 
+        const target = message.mentions.users.first();
+        if(!target) return message.reply({ content: "Who are trying to kick? the chat?" })
+        if(target){
+            const memberTarget = message.guild.members.cache.get(target.id);
+            
+            const row = new MessageActionRow()
+            .addComponents(
+                new MessageButton()
+                .setCustomId("2")
+                .setLabel("Approve kick")
+                .setStyle("PRIMARY"),
+                
+                new MessageButton()
+                .setCustomId("1")
+                
+                .setLabel("Dissallow kick")
+                .setStyle("DANGER"),
+            )
+            const row2 = new MessageActionRow()
+            .addComponents(
+                
+              new MessageButton()
+                .setCustomId("4")
+                .setLabel("Approve kick")
+              .setDisabled(true)
+                .setStyle("PRIMARY"),
+                new MessageButton()
+                .setCustomId("3")
+                
+                .setLabel("Dissallow kick")
+                .setDisabled(true)
+                .setStyle("DANGER")
+            )
+            const filter1 = i => i.customId === "2" && i.user.id;
 
-    let target = message.mentions.members.first() || message.guild.users.cache.get(args[0]);
+            const collector = message.channel.createMessageComponentCollector({ filter1 });
 
-    if (!target) {
-      return message.channel.send(
-        `**${message.author.username}**, Please mention the person who you want to kick`
-      );
-    }
-    if (target.id === message.guild.ownerId) {
-      return message.channel.send("You cannot kick the Server Owner");
-    }
-    if (target.id === message.author.id) {
-      return message.channel.send(
-        `**${message.author.username}**, You can not kick yourself`
-      );
-    }
+            collector.on('collect', async i => {
+              const ban = new MessageEmbed() 
+.setTitle("KICK HAMMER")
+              .setDescription(`MEMBER KICKED`)
+                if (i.customId === "2") {
+                    i.update({ embeds: [ban], components: [row2] })
+                    memberTarget.kick();
+                }
+            })
+            const filter2 = b => b.customId === "1" && i.user.id;
 
-    let reason = args.slice(1).join(" ");
-    if (!reason) reason = "-";
-
-    const embed = new MessageEmbed()
-      .setTitle("KICK MEMBER")
-      .setColor("RANDOM")
-      .setThumbnail(target.user.displayAvatarURL)
-      .setDescription(
-        `Action : Kick \nReason: ${reason} \nUser: ${target} \nModerator: ${message.member}`
-      )
-      .setTimestamp();
-
-    message.channel.send({embeds: [embed]});
-
-    target.kick(args[0]);
-  },
-};
-/**
- * @INFO
- * Bot Coded by iRed#1330 | https://github.com/iRed-Github/Chronium-BOT
- * @INFO
- * Join iDK Development | https://dsc.gg/idk-development
- * @INFO
- * Please mention Her / iDK Development, when using this Code!
- * @INFO
- */
+            const collectorr = message.channel.createMessageComponentCollector({ filter2 });
+            
+            collectorr.on('collect', async b => {
+                if (b.customId === "1") {
+const cancel = new MessageEmbed() 
+                  .setTitle("Kick Hammer")
+.setDescription("Canceled the command")
+                    b.update({ embeds: [cancel], components: [row2] })
+                }
+            })
+const member = new MessageEmbed() 
+.setTitle("Kick Hammer")
+.setDescription(`Are u sure u want to kick ${memberTarget}?`)
+          
+            message.channel.send({ embeds: [member], components: [row] })
+        }
+        }
+              }

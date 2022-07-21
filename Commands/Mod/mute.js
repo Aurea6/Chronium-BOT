@@ -3,7 +3,9 @@ const ms = require('ms')
 
 module.exports = {
     name: 'mute',
-    description: 'Mutes the specified user.',
+    description: 'Mutes the specified user',
+  userpermissions: ["MANAGE_ROLES"],
+  botpermissions: ["EMBED_LINKS", "MANAGE_ROLES"],
     usage: 'Mute @user [time] [reason]',
     /**
      * @param {Client} client
@@ -66,12 +68,4 @@ module.exports = {
 
 
 }
-/**
- * @INFO
- * Bot Coded by iRed#1330 | https://github.com/iRed-Github/Chronium-BOT
- * @INFO
- * Join iDK Development | https://dsc.gg/idk-development
- * @INFO
- * Please mention Her / iDK Development, when using this Code!
- * @INFO
- */
+

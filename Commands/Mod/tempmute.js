@@ -5,9 +5,9 @@ const discord = require("discord.js");
 module.exports = {
   name: "tempmute",
   category: "info",
-  description: "Returns latency and API ping",
-  userPerms: ["MANAGE_ROLES"],
-  botPerms: ["EMBED_LINKS", "MANAGE_ROLES"],
+  description: "tempmute a user",
+  userpermissions: ["MANAGE_ROLES"],
+  botpermissions: ["EMBED_LINKS", "MANAGE_ROLES"],
   run: async (client, message, args) => {
     const user = message.mentions.members.first();
 
@@ -25,7 +25,7 @@ module.exports = {
     }
     if (user.id === message.owner.id) {
       return message.channel.send(
-        "You can use any Mod Command against the Server Owner"
+        "You can't use any Mod Command against the Server Owner"
       );
     }
     const time = args[0];
@@ -62,12 +62,3 @@ module.exports = {
     }, ms(time));
   },
 };
-/**
- * @INFO
- * Bot Coded by iRed#1330 | https://github.com/iRed-Github/Chronium-BOT
- * @INFO
- * Join iDK Development | https://dsc.gg/idk-development
- * @INFO
- * Please mention Her / iDK Development, when using this Code!
- * @INFO
- */
