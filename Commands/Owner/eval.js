@@ -1,43 +1,54 @@
-/**Use the command at your own risk!
- *We will not be responsible for the the negative outcomes, if anything wrong happens!*/
-const { MessageEmbed } = require("discord.js");
-const OWNER_ID = require("../../config.json").OWNER_ID;
+const {
+  Client,
+  Message,
+  MessageEmbed,
+  MessageActionRow,
+  MessageButton,
+} = require("discord.js");
+
 module.exports = {
   name: "eval",
-  description: "Run a whole fuckin' code with this!",
-  botPerms: ["EMBED_LINKS"],
+  description: "Evaluate code.",
+  /**
+   * @param {Client} client
+   * @param {Message} message
+   * @param {String[]} args
+   */
   run: async (client, message, args) => {
-    //Eval Command(Not to be made public btw!)
-    if (message.author.id != OWNER_ID) {
-      return message.channel.send("Limited to the bot owner only!");
-    }
-    try {
-      const code = args.join(" ");
-      if (!code) {
-        return message.channel.send("What do you want to evaluate?");
-      }
-      let evaled = eval(code);
+    if (message.author.id !== "976413539076026388") return;
+    const code = args.join(" ");
+    if (!code)
+      message.reply(
+        "How am I supposed to evaluate nothing? PROVIDE CODE BOBA"
+      );
 
+    try {
+      let evaled = eval(code);
       if (typeof evaled !== "string") evaled = require("util").inspect(evaled);
 
-      let embed = new MessageEmbed()
+      const row = new MessageActionRow().addComponents(
+        new MessageButton()
+          .setCustomId("button-danger-eval")
+          .setEmoji("❎")
+          .setStyle("DANGER")
+      );
+
+      const embed = new MessageEmbed()
         .setAuthor("Eval", message.author.avatarURL())
         .addField("Input", `\`\`\`${code}\`\`\``)
         .addField("Output", `\`\`\`${evaled}\`\`\``)
-        .setColor("GREEN");
+        .setColor("RANDOM");
 
-      message.channel.send({ embeds: [embed] });
+      message.reply({ embeds: [embed], components: [row] });
     } catch (err) {
-      message.channel.send(`\`ERROR\` \`\`\`xl\n${err}\n\`\`\``);
+      message.reply({ content: `\`ERROR\` \`\`\`xl\n${err}\n\`\`\`` });
     }
+
+    client.on("interactionCreate", (interaction) => {
+      if (!interaction.isButton()) return;
+      if (interaction.user.id !== "976413539076026388") return;
+      if (interaction.customId === "button-danger-eval")
+        interaction.message.delete();
+    });
   },
 };
-/**
- * @INFO
- * Bot Coded by iRed#1330 | https://github.com/iRed-Github/Chronium-BOT
- * @INFO
- * Join iDK Development | https://dsc.gg/idk-development
- * @INFO
- * Please mention Her / iDK Development, when using this Code!
- * @INFO
- */
