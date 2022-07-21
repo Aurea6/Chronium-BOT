@@ -1,66 +1,59 @@
+const client = require("../../index");
 const chalk = require("chalk");
-const mongoose = require("mongoose");
-var os = require('os-utils');
-const { mongoPass } = require("../../config.json"); 
-module.exports = (client) => {
+const { version: discordjsVersion } = require("discord.js");
+const { prefix } = require("../../botconfig/main.json");
+const main_json = require("../../botconfig/main.json");
 
-  const guildin = client.guilds.cache.size;
-  const guildmember = client.users.cache.size;
-  
- client.user.setPresence({ status: "dnd" });
-let textList = [' About handling command',' in: ' + guildin + ' Server.' + 'Serving: ' + guildmember + ' member',`Current Cpu core : ${os.cpuCount()}`, `Type //help in chat to get helped`];
- client.user.setPresence({ status: "dnd" });
- setInterval(() => {
-   var text = textList[Math.floor(Math.random() * textList.length)];
-  client.user.setActivity(text, { type: "WATCHING"});
-}, 3000);
-
-  let allMembers = new Set();
-  client.guilds.cache.forEach((guild) => {
-    guild.members.cache.forEach((member) => {
-      allMembers.add(member.user.id);
-    });
-  });
-
-  let allChannels = new Set();
-  client.guilds.cache.forEach((guild) => {
-    guild.channels.cache.forEach((channel) => {
-      allChannels.add(channel.id);
-    });
-  });
-
-  console.log(
-    chalk.bgMagentaBright.black(` ${client.guilds.cache.size} servers `),
-    chalk.bgMagentaBright.black(` ${client.channels.cache.size} channels `),
-    chalk.bgMagentaBright.black(` ${allMembers.size} members `)
+client.on("ready", async () => {
+  const supportServer = client.guilds.cache.get(`${main_json.TestingServerID}`);
+  if (!supportServer) return console.log("");
+  // ———————————————[Status]———————————————
+  client.user.setActivity(
+    `${prefix} help || ${client.guilds.cache.size} ${
+      client.guilds.cache.size > 1 ? "Servers" : "Server"
+    }`,
+    { type: "WATCHING" }
   );
-
-  mongoose
-    .connect(mongoPass || process.env.MONGO_DB, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    })
-    .then(
-      console.log(
-        chalk.bgGreenBright.black(
-          ` ${client.user.username} connected to Mongo DB `
-        )
-      )
+  // ———————————————[Ready MSG]———————————————
+  console.log(chalk.green.bold("Success!"));
+  console.log(chalk.gray("Connected To"), chalk.cyan.bold(`${client.user.tag}`));
+  console.log(
+    chalk.white("Watching"),
+    chalk.red(`${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0)}`),
+    chalk.white(
+      `${
+        client.guilds.cache.reduce((a, b) => a + b.memberCount, 0) > 1
+          ? "Users,"
+          : "User,"
+      }`
+    ),
+    chalk.red(`${client.guilds.cache.size}`),
+    chalk.white(`${client.guilds.cache.size > 1 ? "Servers." : "Server."}`)
+  );
+  console.log(
+    chalk.white(`Prefix:` + chalk.red(` ${prefix}`)),
+    chalk.white("||"),
+    chalk.red(`${client.commands.size}`),
+    chalk.white(`Commands`)
+  );
+  console.log(
+    chalk.white(`Support-Server: `) +
+      chalk.red(`${supportServer.name || "None"}`)
+  );
+  console.log("");
+  console.log(chalk.red.bold("——————————[Statistics]——————————"));
+  console.log(
+    chalk.gray(
+      `Discord.js Version: ${discordjsVersion}\nRunning on Node ${process.version} on ${process.platform} ${process.arch}`
     )
-    .catch((err) =>
-      console.log(
-        chalk.bgRedBright.black(
-          ` ${client.user.username} could not connect to mongo DB `
-        )
-      )
-    );
-};
-/**
- * @INFO
- * Bot Coded by iRed#1330 | https://github.com/iRed-Github/Chronium-BOT
- * @INFO
- * Join iDK Development | https://dsc.gg/idk-development
- * @INFO
- * Please mention Her / iDK Development, when using this Code!
- * @INFO
- */
+  );
+  console.log(
+    chalk.gray(
+      `Memory: ${(process.memoryUsage().rss / 1024 / 1024).toFixed(
+        2
+      )} MB RSS\n${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(
+        2
+      )} MB`
+    )
+  );
+});
