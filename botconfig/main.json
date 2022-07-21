@@ -1,0 +1,27 @@
+{
+  "clienttoken": "",
+
+  "Note_Token:":"Put Your Bot Token Above (If your using replit then make a new secret 'clienttoken' and put ur bot token there... and then keep this string empty)",
+
+  "clientname": "Chronium Bot",
+
+  "clientid": "",
+
+  "TestingServerID": "",
+
+  "clientavatar":"",
+
+  "prefix": "//",
+
+  "developerID": ["976413539076026388"],
+"mongooseConnectionString": "",
+  "colorthemecode":"#FF5733",
+  
+  "randomMessages_Cooldown": ["Slow It Down Fam...", "Spam Isn't Cool Fam....", "Get Premium dude...", "Never Gonna Let You Down","Subscribe To Boba lol", "Hold ur horses...."],
+
+
+  "NOTE:" : "IF YOU DONT PUT STUFF HERE IT WILL THROW ERRS",
+  "topgg": "https://top.gg/bot/977141223301189674/vote"
+}
+
+
