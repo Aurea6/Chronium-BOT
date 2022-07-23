@@ -1,6 +1,6 @@
 {
   "name": "Chronium-BOT",
-  "version": "v1.0.2",
+  "version": "v1.0.3",
   "description": "An advanced multi-purpose discord bot built in discord.js by iRed. Please do not remove credits 😉",
   "main": "index.js",
   "engines": {
