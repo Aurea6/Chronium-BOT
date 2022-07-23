@@ -38,7 +38,7 @@ const player = new Player(client, {
   leaveOnEnd: true,
   leaveOnStop: false,
   leaveOnEmpty: false,
-  leaveOnEmptyCooldown: 6000000,
+  leaveOnEmptyCooldown: 600,
   autoSelfDeaf: true,
   initialVolume: 100,
   ytdlDownloadOptions: {
@@ -103,8 +103,7 @@ const Levels = require("discord-xp");
 const { mongooseConnectionString } = require("./botconfig/main.json");
 
 Levels.setURL(mongooseConnectionString);
-// if your on a hosting platform where env's can be used to hide stuff then put your discord bot token in env
-// check example.env file for some info
+// Hey! There if you're using a hosting service provider which supports "env" files then please go to shell and execute this command "$./setup_env.sh"
 /**
  * @INFO
  * Bot Coded by iRed#1330 | https://github.com/iRed-Github/Chronium-BOT
