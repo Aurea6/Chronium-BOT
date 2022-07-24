@@ -13,7 +13,7 @@ module.exports = async(interaction, client) => {
             const settingsEmbed = new Discord.MessageEmbed()
         .setTitle("Config Commands")
         .setDescription(
-          "`autorole`, `antilink`, `joinchannel`, `joinmessage`, `leavechannel`, `leavemessage` `prefix`"
+          "`antilink`, `antiwords`, `autorole`, `dashboard`, `prefix`, `set-count`, `set-goodbye`, `set-welcome`"
         )
         .setColor("RANDOM");
 
@@ -25,7 +25,7 @@ module.exports = async(interaction, client) => {
             const funEmbed = new Discord.MessageEmbed()
         .setTitle("Fun Commands")
         .setDescription(
-          "`8ball`, `ascii`, `clap`, `clyde`, `cowsay`, `dab`, `emojify`, `fliptext`, `greentext`, `hack`, `howgay`, `hug`, `joke`, `kill`, `orangetext`, `pokeimg`, `pp`, `respect`, `reverse`, `roast`, `slap`, `trivia`, `urban`, `vaportext`, `yomama`"
+          "`8ball`, `activity`, `ascii`, `catsay`, `dab`, `emojify`, `fliptext`, `gif`, `greentext`, `howgay`, `hug`, `joke`, `kill`, `meme`, `nitro`, `orangetext`, `pixel`, `pokeimg`, `pp`, `respect`, `reverse`, `roast`, `slap`, `trivia`, `vaportext`"
         )
         .setColor("RANDOM");
 
@@ -39,7 +39,7 @@ module.exports = async(interaction, client) => {
             .setColor("RANDOM")
             .setTitle("Image Commands")
             .setDescription(
-              "`afraid`, `alert`, `amazeme`, `biden`,`changemymind`, `clyde`, `cryingfloor`, `disastergirl`, `dockofshame`, `doge`, `drake`, `facepalm`, `feelsgood`, `illegal`, `keanu`, `trigger`, `trumptweet`, `wasted`, `wideavatar`"
+              "`afraid`, `alert`, `amazeme`, `biden`, `changemymind`, `clyde`, `creatememe`, `cryingfloor`, `disastergirl`, `dockofshame`, `dodge`, `drake`, `facepalm`, `feelsgood`, `illegal`, `keanu`, `memetemplates`, `trigger`, `trumptweet`, `waster`, `wideavatar`"
             )
 
             await msg.edit({ embeds: [imageEmbed]})
@@ -62,7 +62,7 @@ module.exports = async(interaction, client) => {
             const infoEmbed = new Discord.MessageEmbed()
         .setTitle("Info Commands")
         .setDescription(
-          "`botinfo`, `emojiid`, `help`, `invite`, `ping`, `policy`, `report`, `userinfo`, `userid`, `serverinfo`, `suggest`"
+          "`botinfo`, `emojiid`, `help`, `invite`, `ping`, `policy`, `report`, `userinfo`, `userid`, `serverinfo`, `suggest`, `cmdhelp`, `embed`, `invite`"
         )
         .setColor("RANDOM");
 
@@ -74,7 +74,7 @@ module.exports = async(interaction, client) => {
             const modEmbed = new Discord.MessageEmbed()
             .setTitle("Moderation Commands")
             .setDescription(
-              "`kick`, `ban`, `softban`, `mute`, `unmute`, `tempmute`"
+              "`kick`, `ban`, `softban`, `mute`, `unmute`, `tempmute`, `addroleall`, `nuke`, `purge`, `removeroleall`, `stealemoji`"
             )
             .setColor("RANDOM");
 
@@ -86,7 +86,7 @@ module.exports = async(interaction, client) => {
             const utilityEmbed = new Discord.MessageEmbed()
         .setTitle("Utility Commands")
         .setDescription(
-          "`avatar`, `animesearch`, `announce`, `calculator`, `clear`, `createrole`, `delchannel`, `delrole`, `enlargemoji`, `esay`, `giverole`, `google`, `imdb`, `lock`, `newtext`, `newvoice`, `nickname`, `poll`, `removerole`, `say`, `servericon`, `serverinfo`, `suggestion`, `translate`, `unlock`, `weather`, `wiki`"
+          "`avatar`, `animesearch`, `announce`, `calculator`, `clear`, `createrole`, `delchannel`, `delrole`, `enlargemoji`, `esay`, `giverole`, `google`, `imdb`, `lock`, `newtext`, `newvoice`, `nickname`, `poll`, `removerole`, `say`, `servericon`, `serverinfo`, `suggestion`, `translate`, `unlock`, `weather`, `wiki`, `afk`, `create-cc`, `delete-cc`, `dump`, `edit-cc`, `rolelist`, `serverinfo`, `snipe`, `ss`, `timer`"
         )
         .setColor("RANDOM");
 
@@ -98,7 +98,7 @@ module.exports = async(interaction, client) => {
           const gameEmbed = new Discord.MessageEmbed()
         .setTitle("Game Commands")
         .setDescription(
-          "`connect4`, `catchthefish`, `chaoswords`, `fasttype`, `fight`, `football`, `gunfight`, `guessthenumber`, `guessthepokemon`, `lieswatter`, `neverhaveiever`, `quickclick`, `rps`, `shuffleguess`, `snake`, `trivia`, `ttt`"
+          "`connect4 / C4`, `catchfish`, `catchthefish`, `chaoswords` ``"
         )
         .setColor("RANDOM");
 
@@ -120,7 +120,7 @@ await msg.edit({ embeds: [activityEmbed] })
         const economicEmbed = new Discord.MessageEmbed()
         .setTitle("Economy Commands")
         .setDescription(
-          "Coming in the next update of v1.0.3"
+          "``"
         )
         .setColor("RANDOM");
 await msg.edit({ embeds: [economicEmbed] })
