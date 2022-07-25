@@ -98,7 +98,7 @@ module.exports = async(interaction, client) => {
           const gameEmbed = new Discord.MessageEmbed()
         .setTitle("Game Commands")
         .setDescription(
-          "`connect4 / C4`, `catchfish`, `catchthefish`, `chaoswords` ``"
+          "`connect4 / C4`, `catchfish`, `catchthefish`, `chaoswords` `fasttype`, `fight`, `football`, `guessthenumber`, `guessthepokemon`, `gunfight`, `lieswatter`, `neverhaveiever`, `quickclick`, `roadrace`, `rps`, `shuffleguess`, `snake`, `trivia`, `ttt`, `wyr`"
         )
         .setColor("RANDOM");
 
@@ -120,7 +120,7 @@ await msg.edit({ embeds: [activityEmbed] })
         const economicEmbed = new Discord.MessageEmbed()
         .setTitle("Economy Commands")
         .setDescription(
-          "``"
+          "`adopt`, `bal`, `beg`, `buy`, `daily`, `dep`, `fish`,"
         )
         .setColor("RANDOM");
 await msg.edit({ embeds: [economicEmbed] })
