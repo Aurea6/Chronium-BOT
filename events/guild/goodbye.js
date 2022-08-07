@@ -17,7 +17,7 @@ const wData = await wlcSchema.findOne({Guild: member.guild.id});
 
 if(!wData) return;
   
-  let  bg = 'https://media.discordapp.net/attachments/908270986665803816/921051784536023110/F32351CF-CB53-41CE-90AA-E7985B656D05.png'
+  let  bg = 'https://res.allmacwallpaper.com/get/Retina-MacBook-Air-13-inch-wallpapers/lava-abstract-formation-8k-2560x1600/23136-11.jpg'
 // defining the member's avatar with "PNG" as format.
 let  avatar = member.user.displayAvatarURL({ format:  "png" })
 // defining text_1 (title)
