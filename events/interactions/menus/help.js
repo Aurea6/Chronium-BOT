@@ -120,7 +120,7 @@ await msg.edit({ embeds: [activityEmbed] })
         const economicEmbed = new Discord.MessageEmbed()
         .setTitle("Economy Commands")
         .setDescription(
-          "`adopt`, `bal`, `beg`, `buy`, `daily`, `dep`, `fish`,"
+          "`adopt`, `bal`, `beg`, `buy`, `daily`, `dep`, `fish`, `gamble` `give` `hunt` `inv` `multi` `petlist` `postmeme` `rich` `rob` `search` `sell` `shop` `use` `with`"
         )
         .setColor("RANDOM");
 await msg.edit({ embeds: [economicEmbed] })
