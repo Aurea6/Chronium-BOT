@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Discord Community Support
+    url: https://dsc.gg/idk-development
+    about: Issue tracker is for bug reports only. If you need help, go to Discussions or join our Discord server.
