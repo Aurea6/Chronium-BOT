@@ -1,7 +1,9 @@
+# **IMPORTANT**
+> Yeah, this is important I have stopped the support of this repository... As I don't have time to manage this code...
 <h1 align="center"> Chronium Bot  </h1>
 <p align="center">
 
-  <img src="https://cdn.discordapp.com/attachments/911214420405919814/989059355817168936/chronium-bot.png">
+  <img src="https://github.com/Chronium-Bots/Chronium-BOTS/blob/main/imgs/logo.png">
 
 </a>
 </p>
